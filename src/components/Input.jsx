@@ -10,12 +10,7 @@ function Inputs({ onChange }) {
     onChange(loan, nper, rate);
   }, [loan, nper, rate]);
 
-  let payment = "";
-  if (loan && nper && rate !== "") {
-    payment = (loan * rate) / 100 / (1 - (1 + rate / 100) ** -nper);
-  }
-
-  return (
+    return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <TextField
