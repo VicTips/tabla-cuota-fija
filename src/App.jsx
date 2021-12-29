@@ -9,7 +9,7 @@ function App() {
   const [nper, setNper] = useState("");
   const [rate, setRate] = useState("");
   return (
-    <Box m={{xs: 2, sm: 3, md: 4, lg: 5}}>
+    <Box m={{ xs: 2, sm: 3, md: 4, lg: 5 }}>
       <Inputs
         onChange={(loan, nper, rate) => {
           setLoan(loan);
@@ -17,7 +17,9 @@ function App() {
           setRate(rate);
         }}
       />
-      <AmortizationTable loan={loan} nper={nper} rate={rate} />
+      <Box mt={{ xs: 2, sm: 3, md: 4, lg: 5 }}>
+        <AmortizationTable loan={loan} nper={nper} rate={rate} />
+      </Box>
     </Box>
   );
 }
