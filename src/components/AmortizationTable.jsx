@@ -36,6 +36,12 @@ function AmortizationTable({ loan, nper, rate }) {
       });
     }
   }
+
+  let formatter = new Intl.NumberFormat('en', {
+    style: 'currency',
+    currency: 'USD'
+  });
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -55,10 +61,10 @@ function AmortizationTable({ loan, nper, rate }) {
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell align="center">{row.period}</TableCell>
-              <TableCell align="center">{row.payment}</TableCell>
-              <TableCell align="center">{row.interest}</TableCell>
-              <TableCell align="center">{row.principal}</TableCell>
-              <TableCell align="center">{row.balance}</TableCell>
+              <TableCell align="center">{formatter.format(row.payment)}</TableCell>
+              <TableCell align="center">{formatter.format(row.interest)}</TableCell>
+              <TableCell align="center">{formatter.format(row.principal)}</TableCell>
+              <TableCell align="center">{formatter.format(row.balance)}</TableCell>
             </TableRow>
           ))}
         </TableBody>
