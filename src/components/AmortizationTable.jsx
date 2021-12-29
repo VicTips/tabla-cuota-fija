@@ -13,24 +13,6 @@ function AmortizationTable({ loan, nper, rate }) {
     payment = (loan * rate) / 100 / (1 - (1 + rate / 100) ** -nper);
   }
 
-  // let periods = [];
-  // let interest = [0];
-  // let principal = [0];
-  // let balance = [loan];
-  // if (loan && nper && rate !== "") {
-  //   for (let period = 0; period <= nper; period++) {
-  //     periods.push(period);
-  //     interest.push(balance[period] * (rate / 100));
-  //     principal.push(payment - interest[period + 1]);
-  //     balance.push(
-  //       loan * (1 + rate / 100) ** (period + 1) -
-  //         (payment * ((1 + rate / 100) ** (period + 1) - 1)) / (rate / 100)
-  //     );
-  //   }
-  // }
-  // for (let i = 0; i <= nper; i++) {
-  //   console.log(parseFloat(balance[i]).toFixed(2));
-  // }
   let rows = [{ period: 0, payment: 0, interest: 0, principal: 0, balance: loan }];
   if (loan && nper && rate !== "") {
     for (let period = 1; period <= nper; period++) {
@@ -54,9 +36,6 @@ function AmortizationTable({ loan, nper, rate }) {
       });
     }
   }
-  for (let i = 0; i <= nper; i++) {
-    console.log(rows[i]);
-  }
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -72,14 +51,14 @@ function AmortizationTable({ loan, nper, rate }) {
         <TableBody>
           {rows.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.period}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell align="center">{row.period}</TableCell>
-              <TableCell align="center">{parseInt(row.payment).toFixed(0)}</TableCell>
-              <TableCell align="center">{parseInt(row.interest).toFixed(0)}</TableCell>
-              <TableCell align="center">{parseInt(row.principal).toFixed(0)}</TableCell>
-              <TableCell align="center">{parseInt(row.balance).toFixed(0)}</TableCell>
+              <TableCell align="center">{row.payment}</TableCell>
+              <TableCell align="center">{row.interest}</TableCell>
+              <TableCell align="center">{row.principal}</TableCell>
+              <TableCell align="center">{row.balance}</TableCell>
             </TableRow>
           ))}
         </TableBody>
