@@ -1,60 +1,7 @@
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
-import React, { useState, useEffect, forwardRef } from "react";
-import NumberFormat from "react-number-format";
-
-const FormatCurrency = forwardRef(function FormatCurrency(
-  props,
-  ref
-) {
-  const { onChange, ...other } = props;
-
-  return (
-    <NumberFormat
-      {...other}
-      getInputRef={ref}
-      onValueChange={(values) => {
-        onChange({
-          target: {
-            name: props.name,
-            value: values.value,
-          },
-        });
-      }}
-      thousandSeparator
-      isNumericString
-      allowNegative={false}
-      decimalScale={2}
-      prefix="$"
-    />
-  );
-});
-
-const FormatPercentage = forwardRef(function FormatPercentage(
-  props,
-  ref
-) {
-  const { onChange, ...other } = props;
-
-  return (
-    <NumberFormat
-      {...other}
-      getInputRef={ref}
-      onValueChange={(values) => {
-        onChange({
-          target: {
-            name: props.name,
-            value: values.value,
-          },
-        });
-      }}
-      thousandSeparator
-      isNumericString
-      allowNegative={false}
-      suffix="%"
-    />
-  );
-});
+import React, { useState, useEffect } from "react";
+import { FormatCurrency, FormatPercentage, FormatPeriods } from "./CustomFormats";
 
 function Inputs({ onChange }) {
   const [loan, setLoan] = useState("");
@@ -86,9 +33,11 @@ function Inputs({ onChange }) {
           required
           variant="filled"
           label="Número de periodos"
-          type="number"
           color="success"
           onChange={(e) => setNper(e.target.value)}
+          InputProps={{
+            inputComponent: FormatPeriods,
+          }}
         />
       </Grid>
       <Grid item xs={12}>
