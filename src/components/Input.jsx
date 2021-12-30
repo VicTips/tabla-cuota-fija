@@ -1,7 +1,11 @@
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import React, { useState, useEffect } from "react";
-import { FormatCurrency, FormatPercentage, FormatPeriods } from "./CustomFormats";
+import {
+  FormatCurrency,
+  FormatPercentage,
+  FormatPeriods,
+} from "./CustomFormats";
 
 function Inputs({ onChange }) {
   const [loan, setLoan] = useState("");
@@ -10,7 +14,7 @@ function Inputs({ onChange }) {
 
   useEffect(() => {
     onChange(loan, nper, rate);
-  }, [loan, nper, rate]);
+  }, [onChange, loan, nper, rate]);
 
   return (
     <Grid container spacing={2}>
