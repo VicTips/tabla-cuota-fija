@@ -47,11 +47,11 @@ function AmortizationTable({ loan, nper, rate }) {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">Periodo</TableCell>
-            <TableCell align="center">Cuota</TableCell>
-            <TableCell align="center">Intereses</TableCell>
-            <TableCell align="center">Amortización</TableCell>
-            <TableCell align="center">Saldo</TableCell>
+            <TableCell align="center"><b>Periodo</b></TableCell>
+            <TableCell align="center"><b>Cuota</b></TableCell>
+            <TableCell align="center"><b>Intereses</b></TableCell>
+            <TableCell align="center"><b>Amortización</b></TableCell>
+            <TableCell align="center"><b>Saldo</b></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

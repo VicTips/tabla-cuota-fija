@@ -1,3 +1,7 @@
-.Container{
-    margin-top: 2em;
+th {
+    background-color: #388e3c;
+}
+
+input {
+    text-align: center;
 }
