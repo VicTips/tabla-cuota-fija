@@ -4,7 +4,7 @@ import logo from '../images/logo.png';
 function Logo() {
   return (
     <>
-    <img src={logo} alt='Logo VicTips' style={{ width: "107px", marginTop: "auto", marginBottom: "auto" }}/>
+    <img src={logo} alt='Logo VicTips' height={100}/>
     </>
   )
 }

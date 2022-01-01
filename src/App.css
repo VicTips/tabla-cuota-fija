@@ -5,3 +5,9 @@ th {
 input {
     text-align: center;
 }
+
+thead tr th {
+    color: white !important;
+    font-size: 1.02rem !important;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+}

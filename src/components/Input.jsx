@@ -1,4 +1,4 @@
-import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import React, { useState, useEffect } from "react";
 import {
@@ -17,47 +17,47 @@ function Inputs({ onChange }) {
   }, [onChange, loan, nper, rate]);
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12}>
-        <TextField
-          id="loan"
-          required
-          variant="filled"
-          label="Valor del crédito"
-          color="success"
-          onChange={(e) => setLoan(e.target.value)}
-          InputProps={{
-            inputComponent: FormatCurrency,
-          }}
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          id="nper"
-          required
-          variant="filled"
-          label="Número de periodos"
-          color="success"
-          onChange={(e) => setNper(e.target.value)}
-          InputProps={{
-            inputComponent: FormatPeriods,
-          }}
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          id="rate"
-          required
-          variant="filled"
-          label="Tasa de interés"
-          color="success"
-          onChange={(e) => setRate(e.target.value)}
-          InputProps={{
-            inputComponent: FormatPercentage,
-          }}
-        />
-      </Grid>
-    </Grid>
+    <Box sx={{ display: "flex", flexDirection: "column", '& .MuiTextField-root': { width: '23ch' }, }}>
+      <TextField
+        id="loan"
+        focused
+        placeholder="$10,000,000"
+        variant="outlined"
+        label="Valor del crédito"
+        color="success"
+        margin="normal"
+        onChange={(e) => setLoan(e.target.value)}
+        InputProps={{
+          inputComponent: FormatCurrency,
+        }}
+      />
+      <TextField
+        id="nper"
+        focused
+        placeholder="12"
+        variant="outlined"
+        label="Número de periodos"
+        color="success"
+        margin="normal"
+        onChange={(e) => setNper(e.target.value)}
+        InputProps={{
+          inputComponent: FormatPeriods,
+        }}
+      />
+      <TextField
+        id="rate"
+        focused
+        placeholder="1.5%"
+        variant="outlined"
+        label="Tasa de interés"
+        color="success"
+        margin="normal"
+        onChange={(e) => setRate(e.target.value)}
+        InputProps={{
+          inputComponent: FormatPercentage,
+        }}
+      />
+    </Box>
   );
 }
 
